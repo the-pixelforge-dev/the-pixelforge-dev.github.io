@@ -1,0 +1,335 @@
+/* ThePixelForgeDev shared site style.
+   Dark monochrome by default, light theme via prefers-color-scheme.
+   No external fonts or resources. */
+
+:root {
+  --bg: #121214;
+  --surface: #1c1c1f;
+  --surface-hover: #232327;
+  --text: #f2f2f4;
+  --muted: #a5a5ad;
+  --line: #2c2c31;
+  --accent: #ffffff;
+  --radius: 20px;
+  --width: 720px;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f7f8;
+    --surface: #ffffff;
+    --surface-hover: #f0f0f2;
+    --text: #151517;
+    --muted: #5d5d66;
+    --line: #e2e2e6;
+    --accent: #151517;
+    color-scheme: light;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  padding: 8px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---------- Site header ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header-inner {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.wordmark img {
+  width: 32px;
+  height: 32px;
+}
+
+/* ---------- Page layout ---------- */
+
+main {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 40px 20px 64px;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 36px 0 8px;
+}
+
+p,
+li {
+  color: var(--muted);
+}
+
+strong {
+  color: var(--text);
+}
+
+.lead {
+  font-size: 1.15rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.card > p:first-child {
+  margin-top: 0;
+}
+
+.card > p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Home: intro ---------- */
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 8px;
+}
+
+.intro img {
+  flex: none;
+  width: 112px;
+  height: 112px;
+}
+
+.intro p {
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .intro img {
+    width: 88px;
+    height: 88px;
+  }
+}
+
+.section-title {
+  margin-top: 48px;
+}
+
+/* ---------- Home: app cards ---------- */
+
+.app-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-card {
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  color: var(--text);
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.app-card:hover,
+.app-card:focus-within {
+  background: var(--surface-hover);
+  border-color: var(--muted);
+}
+
+.app-card > img {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+}
+
+.app-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.app-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.app-card .tagline {
+  margin: 2px 0 10px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.app-card .summary {
+  margin: 0 0 14px;
+}
+
+.app-card .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 420px) {
+  .app-card {
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .app-card > img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* Status badge: "Coming soon", later replaced by a store link. */
+.badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+/* ---------- App pages ---------- */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+}
+
+.brand strong {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.brand span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.app-status {
+  margin: 0 0 16px;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+footer a {
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-card {
+    transition: none;
+  }
+}

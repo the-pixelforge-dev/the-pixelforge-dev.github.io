@@ -9,12 +9,23 @@
       content="BlinkCam is a temporary camera: snap a photo or video, share it, and it's gone. Nothing is saved to your gallery or backed up."
     />
     <link rel="icon" href="icon.png" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../assets/site.css" />
   </head>
   <body>
-    <main>
-      <a class="brand" href="./">
-        <img src="icon.png" alt="" />
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="wordmark" href="../">
+          <img src="../assets/logo.png" alt="" width="32" height="32" />
+          ThePixelForgeDev
+        </a>
+      </div>
+    </header>
+
+    <main id="content">
+      <a class="brand" href="./" aria-current="page">
+        <img src="icon.png" alt="" width="64" height="64" />
         <div>
           <strong>BlinkCam</strong>
           <span>by ThePixelForgeDev</span>
@@ -22,6 +33,7 @@
       </a>
 
       <h1>Snap. Share. Gone.</h1>
+      <p class="app-status"><span class="badge">Coming soon to Google Play</span></p>
       <p class="lead">
         BlinkCam is a temporary camera for photos and videos you only need to
         send once. Take it, share it, and BlinkCam deletes it, so it never
@@ -50,7 +62,11 @@
         <a href="mailto:the.pixelforge.dev@gmail.com">the.pixelforge.dev@gmail.com</a>
       </p>
 
-      <footer>© 2026 ThePixelForgeDev</footer>
+      <footer>
+        © 2026 ThePixelForgeDev ·
+        <a href="privacy/">Privacy policy</a> ·
+        <a href="../">All apps</a>
+      </footer>
     </main>
   </body>
 </html>
